@@ -1,0 +1,85 @@
+import random
+import datetime
+
+#! Occupancy
+def GenerateDateFrom():
+    first_date = datetime.date(2000, 1, 1)
+    second_date = datetime.date(2023, 1, 1)
+    num_days_between = (second_date - first_date).days
+    rand_days = random.randint(1, num_days_between)
+
+    date_from = first_date + datetime.timedelta(days = rand_days)
+
+    return date_from
+
+def GenerateDateTo(first_date):
+    second_date = datetime.date(2023, 3, 21)
+    num_days_between = (second_date - first_date).days
+    rand_days = random.randint(1, num_days_between)
+
+    date_to = first_date + datetime.timedelta(days = rand_days)
+
+    return date_to
+
+licence_plates_list = []
+
+with open('licence_plates.txt') as f:
+    licence_plates = f.readlines()
+    #print(licence_plates)
+    for i in licence_plates:
+        as_list = i.split("\n")
+        licence_plates_list.append(as_list[0])
+f.close()    
+
+def GenerateLicencePlate(licence_plates_list):
+    rand_licence_plate = random.choice(licence_plates_list)
+
+    return rand_licence_plate
+
+#!NO POINT ID!!
+def GeneratePointID():
+    a = 1
+
+records_number_occupancy = 200000
+data = []
+data_occupancy_id = []
+
+occupancy_ID = 0
+
+for i in range(records_number_occupancy):
+    occupancy_ID += 1
+    date_from = GenerateDateFrom()
+    date_to = GenerateDateTo(date_from)
+    licence_plate = GenerateLicencePlate(licence_plates_list)
+
+    #!POINT ID MISSING
+    record = f"{occupancy_ID}|{date_from}|{date_to}|{licence_plate}"
+    data.append(record)
+
+    data_occupancy_id.append(occupancy_ID)
+
+with open('caroccupancy_data.bulk', 'w') as f:
+    f.truncate()
+    for record in data:
+        f.write(record + '\n')
+    f.close()
+
+with open('occupancyID.txt', 'w') as f:
+    f.truncate()
+    for id in data_occupancy_id:
+        f.write(str(id) + '\n')
+    f.close()
+
+
+#! RENTING
+#* reservation id
+ReservationID = 1
+
+#* Date from
+def GenerateReservationDateFrom():
+    a = 1 
+
+
+#* Date to 
+def GenerateReservationDateTo():
+    a = 1

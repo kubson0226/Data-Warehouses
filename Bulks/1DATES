@@ -1,0 +1,10 @@
+import random
+import datetime
+import string
+
+print(int(1/2))
+
+
+
+
+

@@ -1,0 +1,54 @@
+import random
+
+#! ID
+def GenerateEmployeeID():
+    a = 1
+
+def GenerateEmployeeFullName():
+    name_list = ['Andrzej', 'Mariusz', 'Wojciech', 'Jakub', 'Bartosz', 'Kondrad', 'Brajan', 'Agata', 'Andrew', 'Natalia', 'Alicja', 'Katarzyna', 'Alicja', 'Joanna', 'Zuzanna']
+    surname_list = ['Kopczych', 'Wojanek', 'Tate', 'Wojtacki', 'Polski', "Tomaszczyk", 'Podlinski', 'Strojek', 'Mielewczyk', 'Kondracki']
+
+    first_name = random.choice(name_list)
+    surname = random.choice(surname_list)
+
+    return first_name, surname
+
+def GeneratePhoneNumber():
+    phone_number = str(random.randint(100000000, 999999999))
+
+    return phone_number
+
+#! renting point
+def GenerateRentingPointID():
+    a = 1
+
+
+records_number = 20
+data = []
+data_employee_id = []
+
+for i in range(records_number):
+    employee_ID = GenerateEmployeeID()
+    name, surname = GenerateEmployeeFullName()
+    phone_number = GeneratePhoneNumber()
+    renting_point_ID = GenerateRentingPointID()
+
+    record = f"{employee_ID}|{name}|{surname}|{phone_number}|{renting_point_ID}"
+    data.append(record)
+
+    record_employee_id = f"{employee_ID}"
+    data_employee_id.append(record_employee_id)
+
+#?!!?!data = list(dict.fromkeys(data))
+
+with open('employee_data.bulk', 'w') as f:
+    f.truncate()
+    for record in data:
+        f.write(record + '\n')
+    f.close()
+
+with open('employeeID.txt', 'w') as f:
+    f.truncate()
+    for record in data_employee_id:
+        f.write(record + '\n')
+    f.close()
