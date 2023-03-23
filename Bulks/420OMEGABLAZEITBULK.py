@@ -2,8 +2,8 @@ import random
 import datetime
 import string
 
-CUSTOMER_NUMBER = 50000
-EMPLOYEE_NUMBER = 20000
+CUSTOMER_NUMBER = 20000
+EMPLOYEE_NUMBER = 10000
 RENTINGPOINT_NUMBER = 100
 CAR_NUMBER = 12000
 
@@ -12,6 +12,8 @@ MAX_DATES_NUMBER = 140
 
 BEGGINING_DATE = 2015
 ENDING_DATE = 2021
+
+PROBABILITY = 75
 
 #! RENTING POINT
 def RentingPointGenerateAddress():
@@ -30,12 +32,12 @@ def RentingPointGeneratePostalCode():
     return number1 + '-' + number2
 
 def RentingPointGeneratePointID():
-    return random.randint(100000, 100100)
+    return random.randint(1, 100)
 
 def RentingPointDataGenerator():
     data = []
     id_data = []
-    id = 100000
+    id = 0
     for _ in range(RENTINGPOINT_NUMBER):
         id += 1
         address_renting = RentingPointGenerateAddress()
@@ -139,8 +141,7 @@ def CustomerGenerateCity():
     city = ['Gdynia','Gdańsk','Warszawa','Łódź','Poznań', 'Toruń', 'Bydgoszcz', 'Zakopane', 'Wrocław', 'Kielce', 'Olsztyn', 'Szczecin', 'Lublin', 'Lubin','Suwałki', 'Iława', 'Malbork', 'Opole', 'Kraków', 'Rzeszów']
     return random.choice(city)
 
-def CustomerDataGenerator(): 
-    num_records = 20000
+def CustomerDataGenerator(num_records): 
     data = []
     pesel_data = []
     for _ in range(num_records):
@@ -226,11 +227,11 @@ def CarGenerateCarType():
 
     return car_type
 
-def CarDataGenerator():
+def CarDataGenerator(car_number):
     data = []
     data_licence_plate = []
 
-    for _ in range(CAR_NUMBER):
+    for _ in range(car_number):
         license_plate = CarGenerateLicencePlate()
         brand = CarGenerateBrand()
         model = CarGenerateModel(brand)
@@ -247,9 +248,8 @@ def CarDataGenerator():
 
 #! EMPLOYEE RELATED
 def EmployeeGenerateID():
-    id1 = str(random.randint(100, 999))
-    id2 = str(random.randint(100, 200))
-    return id1 + id2
+    id1 = str(random.randint(100000, 999999))
+    return id1
 
 def EmployeeGenerateFullName():
     name_list = ['Andrzej', 'Mariusz', 'Wojciech', 'Jakub', 'Bartosz', 'Kondrad', 'Brajan', 'Agata', 'Andrew', 'Natalia', 'Alicja', 'Katarzyna', 'Alicja', 'Joanna', 'Zuzanna']
@@ -268,15 +268,16 @@ def EmployeeGeneratePhoneNumber():
 def EmployeeDataGenerator():
     data = []
     employee_id_data = []
+    employee_id = 100000
     for _ in range(EMPLOYEE_NUMBER):
-        employee_ID = EmployeeGenerateID()
+        employee_id += 1
         name, surname = EmployeeGenerateFullName()
         phone_number = EmployeeGeneratePhoneNumber()
         renting_point_ID = RentingPointGeneratePointID()
 
-        record = f"{employee_ID}|{name}|{surname}|{phone_number}|{renting_point_ID}"
+        record = f"{employee_id}|{name}|{surname}|{phone_number}|{renting_point_ID}"
         data.append(record)
-        emp_id = f"{employee_ID}"
+        emp_id = f"{employee_id}"
         employee_id_data.append(emp_id)
     return data, employee_id_data
 
@@ -351,11 +352,9 @@ def DatesGenerateWithLicencePlatesLists(licence_plate_data):
     """
     licence_plates_occupancy_data = []
     licence_plates_reservation_data = []
-
     for i in range(len(licence_plate_data)):
         for j in range(len(dates_car_occupancy_from[i])):
             licence_plates_occupancy_data.append(licence_plate_data[i])
-
     for i in range(len(licence_plate_data)):
         for j in range(len(dates_car_reservation_from[i])):
             licence_plates_reservation_data.append(licence_plate_data[i])"""
@@ -423,6 +422,14 @@ def CarOccupancyBulk(licence_row_number, car_occup_dates_from, car_occup_dates_t
         for record in data:
             f.write(record + '\n')
         f.close()
+    
+def Generate_status(probability):
+    random_num = random.randint(0,100)
+    if random_num <= probability:
+        status = 1
+    else:
+        status = 0
+    return status
 
 #! Reservation bulk
 def ReservationBulk(occup_total_number, licence_row_number,car_res_dates_from, car_res_dates_to, pesel_list, emp_id_data):
@@ -437,12 +444,11 @@ def ReservationBulk(occup_total_number, licence_row_number,car_res_dates_from, c
     for i in range(licence_row_number):
         for j in range(len(car_res_dates_from[i])):
             #occupancy_id = 0
-
             reservation_id += 1
             car_res_df = car_res_dates_from[i][j]
             car_res_dt = car_res_dates_to[i][j]
             time_of_ocup = (car_res_dates_to[i][j] - car_res_dates_from[i][j]).days
-            status = random.randint(0, 1)
+            status = Generate_status(PROBABILITY)
             pesel = random.choice(pesel_list)
             emp_ID = random.choice(emp_id_data)
             occupancy_id += 1
@@ -473,9 +479,9 @@ def CarBulk(car_record_data):
 
 #! Renting points and customers MISSING
 def main():
-    customer_data, pesel_data = CustomerDataGenerator()
+    customer_data, pesel_data = CustomerDataGenerator(CUSTOMER_NUMBER)
 
-    car_record_data, car_licence_plates = CarDataGenerator()
+    car_record_data, car_licence_plates = CarDataGenerator(CAR_NUMBER)
 
     employee_data, enmployee_ID_data = EmployeeDataGenerator()
 
