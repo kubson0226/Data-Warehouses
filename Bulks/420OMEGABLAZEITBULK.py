@@ -10,8 +10,14 @@ CAR_NUMBER = 12000
 MIN_DATES_NUMBER = 60
 MAX_DATES_NUMBER = 140
 
+MIN_DATES_NUMBER_2 = 20
+MAX_DATES_NUMBER_2 = 60
+
 BEGGINING_DATE = 2015
 ENDING_DATE = 2021
+
+BEGGINING_DATE_2 = ENDING_DATE
+ENDING_DATE_2 = 2023
 
 PROBABILITY = 75
 
@@ -144,7 +150,8 @@ def CustomerGenerateCity():
 def CustomerDataGenerator(num_records): 
     data = []
     pesel_data = []
-    for _ in range(num_records):
+    data2 = []
+    for i in range(num_records):
         pesel = CustomerGeneratePESEL()
         name = CustomerGenerateName()
         surname = CustomerGenerateSurname()
@@ -156,11 +163,17 @@ def CustomerDataGenerator(num_records):
         address = CustomerGenerateAddress()
         city = CustomerGenerateCity()
         record = f"{pesel},{name},{surname},{date_of_birth.strftime('%Y-%m-%d')},{sex},{driving_licence},{phone_number},{email},{address},{city}"
-        record2 = f"{pesel}"
+        record_pesel = f"{pesel}"
         data.append(record)
-        pesel_data.append(record2)
+        pesel_data.append(record_pesel)
+
+        if i % 100 == 0:
+            phone_number = CustomerGeneratePhoneNumber()
+        
+        record2 = f"{pesel},{name},{surname},{date_of_birth.strftime('%Y-%m-%d')},{sex},{driving_licence},{phone_number},{email},{address},{city}"
+        data2.append(record2)
     
-    return data, pesel_data
+    return data, pesel_data, data2
 
 #! CAR RELATED
 def CarGenerateLicencePlate():
@@ -362,6 +375,67 @@ def DatesGenerateWithLicencePlatesLists(licence_plate_data):
 
     return dates_car_occupancy_from, dates_car_occupancy_to, dates_car_reservation_from, dates_car_reservation_to
     
+def DatesGenerateWithLicencePlatesLists2(licence_plate_data):
+
+    dates_car_occupancy_from = []
+    dates_car_occupancy_to = []
+    dates_car_reservation_from = []
+    dates_car_reservation_to = []
+
+    #! BIIIG LOOP
+    for i in range(len(licence_plate_data)):
+        #* random dates list
+        dates = []
+        beggining_date = datetime.date(BEGGINING_DATE_2, 1, 1)
+        last_date = datetime.date(ENDING_DATE_2, 1, 1)
+        number_of_dates = int(random.randint(MIN_DATES_NUMBER_2, MAX_DATES_NUMBER_2) * 2)
+
+        for i in range(number_of_dates):
+            first_date = beggining_date
+            second_date = last_date
+            num_days_between = (second_date - first_date).days
+            rand_days = random.randint(1, num_days_between)
+
+            random_date = first_date + datetime.timedelta(days = rand_days)
+            #* Dates list update
+            if i == number_of_dates - 1:
+                dates.append(last_date)
+                break
+            dates.append(random_date)
+        
+        #* Sorted random dates list
+        sorted_dates = sorted(dates)
+
+
+        #* Date from occupancy
+        occupancy_date_from_list_single_car = []
+        #* Date from occupancy
+        occupancy_date_to_list_single_car = []
+
+        #* Loop for updating date from/date to
+        for i in range(number_of_dates):
+            if i % 2 == 0:
+                occupancy_date_from_list_single_car.append(sorted_dates[i])
+            else:
+                occupancy_date_to_list_single_car.append(sorted_dates[i])
+        
+        #! APPENDING ALL OCCUPANCY DATES
+        dates_car_occupancy_from.append(occupancy_date_from_list_single_car)
+        dates_car_occupancy_to.append(occupancy_date_to_list_single_car)
+
+        #* Date from reservation
+        reservation_date_from_list = occupancy_date_to_list_single_car[0:-1]
+        #* Date to reservation
+        reservation_date_to_list = occupancy_date_from_list_single_car[1:]
+
+        #! Appending ALL RESERVATIONS DATES
+        dates_car_reservation_from.append(reservation_date_from_list)
+        dates_car_reservation_to.append(reservation_date_to_list)
+
+
+    return dates_car_occupancy_from, dates_car_occupancy_to, dates_car_reservation_from, dates_car_reservation_to
+    
+
 def GetOccupNumber(licence_row_number, car_occup_dates_from):
     number = 0
     for i in range(licence_row_number):
@@ -380,6 +454,12 @@ def CustomerCSV(data, data_pesel):
         f.truncate()
         for record2 in data_pesel:
             f.write(record2 + '\n')
+
+def CustomerCSV2(data):
+    with open('customer2.csv', 'w') as f:
+        f.truncate()
+        for record in data:
+            f.write(record + '\n')
 
 #! Renting Point bulk
 def RentingPointCSV(data, data_id):
@@ -422,7 +502,28 @@ def CarOccupancyBulk(licence_row_number, car_occup_dates_from, car_occup_dates_t
         for record in data:
             f.write(record + '\n')
         f.close()
-    
+
+def CarOccupancyBulk2(licence_row_number, car_occup_dates_from, car_occup_dates_to, licence_plates_occup_data):
+
+    data = []
+    occupancy_id = 0
+    for i in range(licence_row_number):
+        for j in range(len(car_occup_dates_from[i])):
+            occupancy_id += 1
+            car_occup_df = car_occup_dates_from[i][j]
+            car_occup_dt = car_occup_dates_to[i][j]
+            licence_plate = licence_plates_occup_data[i]
+            point_id = RentingPointGeneratePointID()
+                                                                    
+            record = f"{occupancy_id}|{car_occup_df}|{car_occup_dt}|{licence_plate}|{point_id}"
+            data.append(record)
+
+    with open('caroccupancy_data2.bulk', 'w') as f:
+        f.truncate()
+        for record in data:
+            f.write(record + '\n')
+        f.close()
+
 def Generate_status(probability):
     random_num = random.randint(0,100)
     if random_num <= probability:
@@ -465,6 +566,39 @@ def ReservationBulk(occup_total_number, licence_row_number,car_res_dates_from, c
             f.write(record + '\n')
         f.close()
 
+def ReservationBulk2(occup_total_number, licence_row_number,car_res_dates_from, car_res_dates_to, pesel_list, emp_id_data):
+    data = []
+
+    occupancy_ID = []
+    for i in range(occup_total_number):
+        occupancy_ID.append(i + 1)
+
+    reservation_id = 0
+    occupancy_id = 0
+    for i in range(licence_row_number):
+        for j in range(len(car_res_dates_from[i])):
+            #occupancy_id = 0
+            reservation_id += 1
+            car_res_df = car_res_dates_from[i][j]
+            car_res_dt = car_res_dates_to[i][j]
+            time_of_ocup = (car_res_dates_to[i][j] - car_res_dates_from[i][j]).days
+            status = Generate_status(PROBABILITY)
+            pesel = random.choice(pesel_list)
+            emp_ID = random.choice(emp_id_data)
+            occupancy_id += 1
+            
+            record = f"{reservation_id}|{car_res_df}|{car_res_dt}|{time_of_ocup}|{status}|{pesel}|{emp_ID}|{occupancy_id}"
+            data.append(record)
+            if j == len(car_res_dates_from[i]) - 1:
+                occupancy_id += 1
+                break
+
+    with open('reservation_data2.bulk', 'w') as f:
+        f.truncate()
+        for record in data:
+            f.write(record + '\n')
+        f.close()
+
 #! Car bulk
 def CarBulk(car_record_data):
     with open('car_data.bulk', 'w') as f:
@@ -475,12 +609,9 @@ def CarBulk(car_record_data):
 
 
 
-
-
-#! Renting points and customers MISSING
 def main():
-    customer_data, pesel_data = CustomerDataGenerator(CUSTOMER_NUMBER)
-
+    customer_data, pesel_data, customer_data_2 = CustomerDataGenerator(CUSTOMER_NUMBER)
+     
     car_record_data, car_licence_plates = CarDataGenerator(CAR_NUMBER)
 
     employee_data, enmployee_ID_data = EmployeeDataGenerator()
@@ -492,11 +623,21 @@ def main():
     occup_total = GetOccupNumber(len(car_licence_plates), car_occup_dates_from)
     
     CustomerCSV(customer_data, pesel_data)
+
     RentingPointCSV(rentingpoint_data, renting_id_data)
     EmployeeBulk(employee_data)
+    CarBulk(car_record_data)
     CarOccupancyBulk(len(car_licence_plates), car_occup_dates_from, car_occup_dates_to, car_licence_plates)
     ReservationBulk(occup_total, len(car_licence_plates), car_res_dates_from, car_res_dates_to, pesel_data, enmployee_ID_data)
-    CarBulk(car_record_data)
 
+    car_occup_dates_from_2, car_occup_dates_to_2, car_res_dates_from_2, car_res_dates_to_2 = DatesGenerateWithLicencePlatesLists2(car_licence_plates)
+
+    occup_total_2 = GetOccupNumber(len(car_licence_plates), car_occup_dates_from_2)
+
+    CarOccupancyBulk2(len(car_licence_plates), car_occup_dates_from_2, car_occup_dates_to_2, car_licence_plates)
+    ReservationBulk2(occup_total_2, len(car_licence_plates), car_res_dates_from_2, car_res_dates_to_2, pesel_data, enmployee_ID_data)
+    
+    CustomerCSV2(customer_data_2)
+    
 if __name__ == "__main__":
     main()
