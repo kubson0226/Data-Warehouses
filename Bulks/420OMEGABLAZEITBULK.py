@@ -168,7 +168,7 @@ def CustomerDataGenerator(num_records):
         pesel_data.append(record_pesel)
 
         if i % 100 == 0:
-            phone_number = CustomerGeneratePhoneNumber()
+            surname = CustomerGenerateSurname()
         
         record2 = f"{pesel},{name},{surname},{date_of_birth.strftime('%Y-%m-%d')},{sex},{driving_licence},{phone_number},{email},{address},{city}"
         data2.append(record2)
@@ -487,12 +487,14 @@ def CarOccupancyBulk(licence_row_number, car_occup_dates_from, car_occup_dates_t
     data = []
     occupancy_id = 0
     for i in range(licence_row_number):
+
+        car_point = RentingPointGeneratePointID()
         for j in range(len(car_occup_dates_from[i])):
             occupancy_id += 1
             car_occup_df = car_occup_dates_from[i][j]
             car_occup_dt = car_occup_dates_to[i][j]
             licence_plate = licence_plates_occup_data[i]
-            point_id = RentingPointGeneratePointID()
+            point_id = car_point
                                                                     
             record = f"{occupancy_id}|{car_occup_df}|{car_occup_dt}|{licence_plate}|{point_id}"
             data.append(record)
@@ -508,12 +510,14 @@ def CarOccupancyBulk2(licence_row_number, car_occup_dates_from, car_occup_dates_
     data = []
     occupancy_id = 0
     for i in range(licence_row_number):
+
+        car_point = RentingPointGeneratePointID()
         for j in range(len(car_occup_dates_from[i])):
             occupancy_id += 1
             car_occup_df = car_occup_dates_from[i][j]
             car_occup_dt = car_occup_dates_to[i][j]
             licence_plate = licence_plates_occup_data[i]
-            point_id = RentingPointGeneratePointID()
+            point_id = car_point
                                                                     
             record = f"{occupancy_id}|{car_occup_df}|{car_occup_dt}|{licence_plate}|{point_id}"
             data.append(record)
