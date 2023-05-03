@@ -19,18 +19,18 @@ INSERT INTO Dim_Car VALUES (8, 'ASN1234', 'Opel', 3, 'Corsa', 1955);
 INSERT INTO Dim_Car VALUES (9, 'UHR6527', 'Opel', 1, 'Mokka', 1971);
 INSERT INTO Dim_Car VALUES (10, 'PQL1209', 'Dacia', 2, 'Duster', 1961);
 
-INSERT INTO Dim_Renting_Point VALUES (1, 'Bydgoszcz', 'Kr�tka 100/99', '21-379');
-INSERT INTO Dim_Renting_Point VALUES (2, 'Gda�sk', 'D�uga 99/10', '21-678');
+INSERT INTO Dim_Renting_Point VALUES (1, 'Bydgoszcz', 'Krótka 100/99', '21-379');
+INSERT INTO Dim_Renting_Point VALUES (2, 'Gdañsk', 'D³uga 99/10', '21-678');
 INSERT INTO Dim_Renting_Point VALUES (3, 'Sopot', 'Szeroka 1/9', '21-420');
-INSERT INTO Dim_Renting_Point VALUES (4, 'Wroc�awek', 'Niska 12/18', '21-240');
+INSERT INTO Dim_Renting_Point VALUES (4, 'Wroc³awek', 'Niska 12/18', '21-240');
 INSERT INTO Dim_Renting_Point VALUES (5, 'Sosnowiec', 'Wiksa 97/22', '21-024');
-INSERT INTO Dim_Renting_Point VALUES (6, 'P�tusk', 'Dobra 240/37', '21-042');
+INSERT INTO Dim_Renting_Point VALUES (6, 'Pó³tusk', 'Dobra 240/37', '21-042');
 INSERT INTO Dim_Renting_Point VALUES (7, 'Rawka', 'Zla 24/6', '21-204');
-INSERT INTO Dim_Renting_Point VALUES (8, 'Wa�brzych', 'Polska 42/1', '21-402');
-INSERT INTO Dim_Renting_Point VALUES (9, 'Bia�ystko', 'Polka 69/2', '21-997');
-INSERT INTO Dim_Renting_Point VALUES (10, 'S�upsk', 'Pana Boczka 78/4', '21-112');
+INSERT INTO Dim_Renting_Point VALUES (8, 'Wa³brzych', 'Polska 42/1', '21-402');
+INSERT INTO Dim_Renting_Point VALUES (9, 'Bia³ystko', 'Polka 69/2', '21-997');
+INSERT INTO Dim_Renting_Point VALUES (10, 'S³upsk', 'Pana Boczka 78/4', '21-112');
 
-INSERT INTO Dim_Customer VALUES (1, '75070148996', 'W�adek', 'Ladek', '1997-01-21', 'M', 'Gdansk','Young', '2016-02-26', NULL, 1);
+INSERT INTO Dim_Customer VALUES (1, '75070148996', 'W³adek', 'Ladek', '1997-01-21', 'M', 'Gdansk','Young', '2016-02-26', NULL, 1);
 INSERT INTO Dim_Customer VALUES (2, '05232015628', 'Romek', 'Tytus', '1986-02-21', 'M', 'Wroclaw','Young', '2016-02-26', NULL, 1);
 INSERT INTO Dim_Customer VALUES (3, '50032831774', 'Tadek', 'Padek', '1959-03-21', 'M', 'Gdansk','Old', '2016-02-26', NULL, 1);
 INSERT INTO Dim_Customer VALUES (4, '90091198971', 'Atomek', 'Romek', '1999-04-21', 'M', 'Gdynia','Young', '2016-02-26', NULL, 1);
