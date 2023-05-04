@@ -88,11 +88,11 @@ def CustomerGeneratePESEL():
     return year_str + month_str + day_str + rand_num_final + str(control_sum)
 
 def CustomerGenerateName():
-    first_names = ['Adam', 'Aleksander', 'Andrzej', 'Bartosz', 'Dariusz', 'Grzegorz', 'Jakub', 'Jan', 'Krzysztof', 'Marcin', 'Michał', 'Piotr', 'Rafał', 'Tomasz', 'Wojciech']
+    first_names = ['Adam', 'Aleksander', 'Andrzej', 'Bartosz', 'Dariusz', 'Grzegorz', 'Jakub', 'Jan', 'Krzysztof', 'Marcin', 'Michal', 'Piotr', 'Rafal', 'Tomasz', 'Wojciech']
     return random.choice(first_names)
 
 def CustomerGenerateSurname():
-    surnames = ["Krawczyk","Rutkowski","Sobczak",'Sikora','Ostrowski','Błaszczyk','Urbańska','Lewandowski','Mazurek','Kucharski','Czarnecki','Baranowski','Czarnecki','Woźniak','Krawczyk','Dąbrowski','Borkowski','Błaszczyk','Przybylski','Sadowska','Szymański','Jakubowski','Wasilewska','Dąbrowski','Piotrowski','Górski','Piotrowki','Laskowska','Woźniak','Zakrzewska','Szymański','Sadowska','Zawadzki','Rutkowski','Urbańska','Wójcik','Sikorska','Walczak','Sikora','Sadowska','Kowalczyk','Górski','Czerwińki','Sobczak','Sokołowski','Borkowski','Kamiński','Baran','Kamiński','Adamska','Wiśniewski','Urbańska','Kowalski','Chmielewski','Sadowska','Cieślak','Sikora','Ostrowski','Rutkowski','Urbańska','Baran','Kubiak','Mróz','Woźniak','Mazur','Pietrzak','Czerwiński','Szymczak','Sawicki','Adamska','Wójcik','Baran','Górski','Wasilewska','Andrzejewski','Kowalczyk','Zalewski','Urbańska','Szczepański']
+    surnames = ["Krawczyk","Rutkowski","Sobczak",'Sikora','Ostrowski','Blaszczyk','Urbanska','Lewandowski','Mazurek','Kucharski','Czarnecki','Baranowski','Czarnecki','Wozniak','Krawczyk','Dabrowski','Borkowski','Blaszczyk','Przybylski','Sadowska','Szymanski','Jakubowski','Wasilewska','Dabrowski','Piotrowski','Gorski','Piotrowki','Laskowska','Wozniak','Zakrzewska','Szymanski','Sadowska','Zawadzki','Rutkowski','Urbanska','Wojcik','Sikorska','Walczak','Sikora','Sadowska','Kowalczyk','Gorski','Czerwinki','Sobczak','Sokolowski','Borkowski','Kaminski','Baran','Kaminski','Adamska','Wisniewski','Urbanska','Kowalski','Chmielewski','Sadowska','Cieslak','Sikora','Ostrowski','Rutkowski','Urbanska','Baran','Kubiak','Mroz','Wozniak','Mazur','Pietrzak','Czerwinski','Szymczak','Sawicki','Adamska','Wojcik','Baran','Gorski','Wasilewska','Andrzejewski','Kowalczyk','Zalewski','Urbanska','Szczepanski']
     return random.choice(surnames)
 
 def CustomerGeneratePhoneNumber():
