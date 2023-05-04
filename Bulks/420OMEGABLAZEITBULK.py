@@ -168,7 +168,7 @@ def CustomerDataGenerator(num_records):
         pesel_data.append(record_pesel)
 
         if i % 100 == 0:
-            surname = CustomerGenerateSurname()
+            city = CustomerGenerateCity()
         
         record2 = f"{pesel},{name},{surname},{date_of_birth.strftime('%Y-%m-%d')},{sex},{driving_licence},{phone_number},{email},{address},{city}"
         data2.append(record2)
