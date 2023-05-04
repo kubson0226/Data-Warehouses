@@ -138,13 +138,13 @@ def CustomerGenerateEmail(name, surname, year):
     return name + "." + surname + year + "@" + random.choice(domain) + "." + "com"
 
 def CustomerGenerateAddress():
-    street = ['Polna','Leśna','Słoneczna','Krótka','Szkolna', 'Ogrodowa','Lipowa','Łakowa','Brzozowa','Kwiatowa','Kościelna','Sosnowa','Zielona','Parkowa','Akacjowa','Kolejowa','Żaglowa','Armii Krajowej','Grunwaldzka','Opolska','Jachtowa','Fregatowa','Karciana','Mazowiecka']
+    street = ['Polna','Lesna','Sloneczna','Krotka','Szkolna', 'Ogrodowa','Lipowa','Lakowa','Brzozowa','Kwiatowa','Koscielna','Sosnowa','Zielona','Parkowa','Akacjowa','Kolejowa','Zaglowa','Armii Krajowej','Grunwaldzka','Opolska','Jachtowa','Fregatowa','Karciana','Mazowiecka']
     number1 = str(random.randint(0,300))
     number2 = str(random.randint(0,99))
     return random.choice(street) + " " + str(random.randint(0,300)) + "/" + str(random.randint(0,99))
 
 def CustomerGenerateCity():
-    city = ['Gdynia','Gdańsk','Warszawa','Łódź','Poznań', 'Toruń', 'Bydgoszcz', 'Zakopane', 'Wrocław', 'Kielce', 'Olsztyn', 'Szczecin', 'Lublin', 'Lubin','Suwałki', 'Iława', 'Malbork', 'Opole', 'Kraków', 'Rzeszów']
+    city = ['Gdynia','Gdansk','Warszawa','Lodz','Poznan', 'Torun', 'Bydgoszcz', 'Zakopane', 'Wroclaw', 'Kielce', 'Olsztyn', 'Szczecin', 'Lublin', 'Lubin','Suwalki', 'Ilawa', 'Malbork', 'Opole', 'Krakow', 'Rzeszow']
     return random.choice(city)
 
 def CustomerDataGenerator(num_records): 
