@@ -23,13 +23,13 @@ PROBABILITY = 75
 
 #! RENTING POINT
 def RentingPointGenerateAddress():
-    street = ['Pańska', 'Hodowlana', 'Długa', 'Różana', 'Czarna', 'Pilna', 'Lubelska', 'Gradientowa', 'Kolejowa', 'Warszawska', 'Śląska', 'Bawełniana', 'Morska', 'Dębowa', 'Poznańska']
+    street = ['Panska', 'Hodowlana', 'Dluga', 'Rozana', 'Czarna', 'Pilna', 'Lubelska', 'Gradientowa', 'Kolejowa', 'Warszawska', 'Slaska', 'Bawelniana', 'Morska', 'Debowa', 'Poznanska']
     number1 = str(random.randint(0,300))
     number2 = str(random.randint(0,99))
     return random.choice(street) + " " + str(random.randint(0,300)) + "/" + str(random.randint(0,99))
 
 def RentingPointGenerateCity():
-    city = ['Gdynia','Gdańsk','Warszawa','Łódź','Poznań', 'Toruń', 'Bydgoszcz', 'Zakopane', 'Wrocław', 'Kielce', 'Olsztyn', 'Szczecin', 'Lublin', 'Lubin','Suwałki', 'Iława', 'Malbork', 'Opole', 'Kraków', 'Rzeszów']
+    city = ['Gdynia','Gdansk','Warszawa','Lodz','Poznan', 'Torun', 'Bydgoszcz', 'Zakopane', 'Wroclaw', 'Kielce', 'Olsztyn', 'Szczecin', 'Lublin', 'Lubin','Suwalki', 'Ilawa', 'Malbork', 'Opole', 'Krakow', 'Rzeszow']
     return random.choice(city)
 
 def RentingPointGeneratePostalCode():
@@ -505,10 +505,11 @@ def CarOccupancyBulk(licence_row_number, car_occup_dates_from, car_occup_dates_t
             f.write(record + '\n')
         f.close()
 
-def CarOccupancyBulk2(licence_row_number, car_occup_dates_from, car_occup_dates_to, licence_plates_occup_data):
+    return occupancy_id
+
+def CarOccupancyBulk2(licence_row_number, car_occup_dates_from, car_occup_dates_to, licence_plates_occup_data, occupancy_id):
 
     data = []
-    occupancy_id = 0
     for i in range(licence_row_number):
 
         car_point = RentingPointGeneratePointID()
@@ -570,15 +571,15 @@ def ReservationBulk(occup_total_number, licence_row_number,car_res_dates_from, c
             f.write(record + '\n')
         f.close()
 
-def ReservationBulk2(occup_total_number, licence_row_number,car_res_dates_from, car_res_dates_to, pesel_list, emp_id_data):
+    return reservation_id, occupancy_id
+
+def ReservationBulk2(occup_total_number, licence_row_number,car_res_dates_from, car_res_dates_to, pesel_list, emp_id_data, reservation_id, occupancy_id):
     data = []
 
     occupancy_ID = []
     for i in range(occup_total_number):
         occupancy_ID.append(i + 1)
 
-    reservation_id = 0
-    occupancy_id = 0
     for i in range(licence_row_number):
         for j in range(len(car_res_dates_from[i])):
             #occupancy_id = 0
@@ -631,15 +632,15 @@ def main():
     RentingPointCSV(rentingpoint_data, renting_id_data)
     EmployeeBulk(employee_data)
     CarBulk(car_record_data)
-    CarOccupancyBulk(len(car_licence_plates), car_occup_dates_from, car_occup_dates_to, car_licence_plates)
-    ReservationBulk(occup_total, len(car_licence_plates), car_res_dates_from, car_res_dates_to, pesel_data, enmployee_ID_data)
+    occupancyID = CarOccupancyBulk(len(car_licence_plates), car_occup_dates_from, car_occup_dates_to, car_licence_plates)
+    reservationID, occupancyID2 = ReservationBulk(occup_total, len(car_licence_plates), car_res_dates_from, car_res_dates_to, pesel_data, enmployee_ID_data)
 
     car_occup_dates_from_2, car_occup_dates_to_2, car_res_dates_from_2, car_res_dates_to_2 = DatesGenerateWithLicencePlatesLists2(car_licence_plates)
 
     occup_total_2 = GetOccupNumber(len(car_licence_plates), car_occup_dates_from_2)
 
-    CarOccupancyBulk2(len(car_licence_plates), car_occup_dates_from_2, car_occup_dates_to_2, car_licence_plates)
-    ReservationBulk2(occup_total_2, len(car_licence_plates), car_res_dates_from_2, car_res_dates_to_2, pesel_data, enmployee_ID_data)
+    CarOccupancyBulk2(len(car_licence_plates), car_occup_dates_from_2, car_occup_dates_to_2, car_licence_plates, occupancyID)
+    ReservationBulk2(occup_total_2, len(car_licence_plates), car_res_dates_from_2, car_res_dates_to_2, pesel_data, enmployee_ID_data, reservationID, occupancyID2)
     
     CustomerCSV2(customer_data_2)
     
