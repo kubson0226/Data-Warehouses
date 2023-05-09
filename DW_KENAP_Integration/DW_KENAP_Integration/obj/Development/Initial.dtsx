@@ -1,0 +1,187 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/9/2023 3:59:43 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-S8A9FBK"
+  DTS:CreatorName="DESKTOP-S8A9FBK\kubak"
+  DTS:DTSID="{1434C984-8BFF-418B-8489-A866ABE72670}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5035.3"
+  DTS:LocaleID="1045"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{B18A23CE-1E33-414A-BE04-C350E3D3734C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DESKTOP-S8A9FBK\MSSQLSERVER_OLAP.KENAP]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A62CAA1F-1415-43F1-9C8C-F6139306E464}"
+      DTS:ObjectName="DESKTOP-S8A9FBK\MSSQLSERVER_OLAP.KENAP">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=DESKTOP-S8A9FBK\MSSQLSERVER_OLAP;Initial Catalog=KENAP;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{A62CAA1F-1415-43F1-9C8C-F6139306E464}DESKTOP-S8A9FBK\MSSQLSERVER_OLAP.KENAP;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_CUSTOMER_KENAP.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{2EA85484-E47C-475C-9E78-E8C78A908E19}"
+      DTS:ObjectName="ETL_CUSTOMER_KENAP.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_CUSTOMER_KENAP.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_JUNK_KENAP.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8ADD6519-2471-4234-80D7-859C8D2EA17B}"
+      DTS:ObjectName="ETL_JUNK_KENAP.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_JUNK_KENAP.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_load_date_KENAP.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{B2DA32B7-4211-40AE-8E59-41F0AE2496EA}"
+      DTS:ObjectName="ETL_load_date_KENAP.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_load_date_KENAP.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_LOAD_DIM_CAR.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{9FAC738C-C0BA-464A-9570-67E75146F54B}"
+      DTS:ObjectName="ETL_LOAD_DIM_CAR.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_LOAD_DIM_CAR.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_PRICE_TABLE_KENAP.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{C5FE00B6-BED4-478F-A10B-AC64C81F1602}"
+      DTS:ObjectName="ETL_PRICE_TABLE_KENAP.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_PRICE_TABLE_KENAP.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_RENTING_POINT.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{8B93E7D8-C63A-47B3-B07E-EEFE389AC0B2}"
+      DTS:ObjectName="ETL_RENTING_POINT.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_RENTING_POINT.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ETL_UNKNOWN_KENAP.sql]"
+      DTS:CreationName="FILE"
+      DTS:DTSID="{73A4FBEA-289C-45F6-9D6D-6D70BE8F3AAA}"
+      DTS:ObjectName="ETL_UNKNOWN_KENAP.sql">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="C:\Kuba_pliki\Studia\Sem 4\Data Warehouses\DataWarehouses-main_KENAP\kenapETL\ETL_UNKNOWN_KENAP.sql" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Load_DIM_DATE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{3C21E54B-E530-401F-8511-E1D39E9C8667}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_DIM_DATE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A62CAA1F-1415-43F1-9C8C-F6139306E464}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="ETL_load_date_KENAP.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_DIM_Reservation_Info"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{0BFB91C3-9FC7-478F-A807-0E0C50C63BEE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_DIM_Reservation_Info"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A62CAA1F-1415-43F1-9C8C-F6139306E464}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="ETL_JUNK_KENAP.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Load_UNKNOWN"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{82AFF113-1F43-4B4B-A2FE-8E51C5DAF9CD}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Load_UNKNOWN"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A62CAA1F-1415-43F1-9C8C-F6139306E464}"
+          SQLTask:SqlStmtSourceType="FileConnection"
+          SQLTask:SqlStatementSource="ETL_UNKNOWN_KENAP.sql" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load_DIM_Reservation_Info"
+          TopLeft="178.75,63.75" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Load_DIM_DATE"
+          TopLeft="697.5,68.75" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Load_UNKNOWN"
+          TopLeft="443.75,65" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
