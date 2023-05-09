@@ -15,7 +15,7 @@ Prod_Year INT
 )
 
 CREATE TABLE Dim_Renting_Point(
-Point_SID INTEGER IDENTITY(1,1) NOT NULL PRIMARY KEY,
+Point_SID TINYINT NOT NULL PRIMARY KEY,
 City VARCHAR(30),
 _Address VARCHAR(40),
 Postal_Code VARCHAR(6)
@@ -55,7 +55,7 @@ Car_sid INT FOREIGN KEY REFERENCES Dim_Car(Car_SID),
 Date_from INT FOREIGN KEY REFERENCES Dim_Date(Date_SID),
 Date_to INT FOREIGN KEY REFERENCES Dim_Date(Date_SID),
 Customer_sid INT FOREIGN KEY REFERENCES Dim_Customer(Customer_SID),
-Point_sid INT FOREIGN KEY REFERENCES Dim_Renting_Point(Point_SID),
+Point_sid TINYINT FOREIGN KEY REFERENCES Dim_Renting_Point(Point_SID),
 Category_sid INT FOREIGN KEY REFERENCES Dim_Reservation_Info(Category_SID),
 Time_of_reservation INT,
 Customer_Age INT,
