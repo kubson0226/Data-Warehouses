@@ -1,0 +1,18 @@
+ -- 1. Which models of cars are most often rented?
+ SELECT { [Measures].[Fact Reservation Count] } ON COLUMNS,
+ TopCount ([Dim Car].[Brand].[Brand].MEMBERS * [Dim Car].[Model].[Model].MEMBERS, 10, [Measures].[Fact Reservation Count]) ON ROWS 
+ FROM [KENAP]
+
+ -- 2. In which city our rental points are mostly used?
+ SELECT { [Measures].[Fact Reservation Count] } ON COLUMNS,
+ TopCount ([Dim Renting Point].[City].[City].Members, 10, [Measures].[Fact Reservation Count]) ON ROWS
+ From [KENAP]
+
+ -- 3. Compare the amount of reservations in specific month to the amount from preceding month.
+ SELECT { [Measures].[Fact Reservation Count] } ON COLUMNS,
+ { ([Date From].[Year].[Year] * [Date From].[Month].[Month]) } ON ROWS 
+ FROM 
+ (SELECT ( { [Date From].[DateHierarchy].[Year].[2018].[January], [Date From].[DateHierarchy].[Year].[2017].[December] } ) ON COLUMNS 
+ FROM [KENAP]) 
+
+ -- 5. Show the number of customers for each customers’ city who had at least 1 reservation
