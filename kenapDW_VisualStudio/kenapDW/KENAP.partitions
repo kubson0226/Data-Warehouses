@@ -1,0 +1,311 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="88f0ad15-2ee7-4104-a5f3-4fcaff1a7d73" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>KENAP</ID>
+  <MeasureGroups>
+    <MeasureGroup>
+      <ID>Fact Reservation</ID>
+      <Partitions>
+        <Partition dwd:design-time-name="ee97d61c-ab91-455f-aa95-d84a5731dcf2">
+          <ID>Fact Reservation</ID>
+          <Name>Fact Reservation</Name>
+          <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+          <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+          <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+          <State>Unprocessed</State>
+          <Source xsi:type="DsvTableBinding" dwd:design-time-name="2c28d01f-0933-4df5-84f2-ba34e1946085">
+            <DataSourceViewID>KENAP</DataSourceViewID>
+            <TableID>dbo_Fact_Reservation</TableID>
+          </Source>
+          <StorageMode>Holap</StorageMode>
+          <CurrentStorageMode>Molap</CurrentStorageMode>
+          <ProcessingMode>Regular</ProcessingMode>
+          <ProactiveCaching dwd:design-time-name="a6cf5b06-db68-4619-b487-a061e2b9a2a7">
+            <SilenceInterval>PT0S</SilenceInterval>
+            <Latency>PT0S</Latency>
+            <SilenceOverrideInterval>-PT1S</SilenceOverrideInterval>
+            <ForceRebuildInterval>-PT1S</ForceRebuildInterval>
+            <Enabled>true</Enabled>
+            <AggregationStorage>MolapOnly</AggregationStorage>
+            <Source xsi:type="ProactiveCachingInheritedBinding" dwd:design-time-name="50fceabf-6b1d-432f-a9ff-b61adf14cc8e">
+              <NotificationTechnique>Server</NotificationTechnique>
+            </Source>
+          </ProactiveCaching>
+          <EstimatedRows>1654410</EstimatedRows>
+          <AggregationDesignID>Aggregation_standard</AggregationDesignID>
+        </Partition>
+      </Partitions>
+      <AggregationDesigns>
+        <AggregationDesign>
+          <ID>Aggregation_standard</ID>
+          <Name>Aggregation_standard</Name>
+          <CreatedTimestamp>2023-05-30T18:15:23.606667Z</CreatedTimestamp>
+          <LastSchemaUpdate>2023-05-30T18:15:23.606667Z</LastSchemaUpdate>
+          <EstimatedRows>1654410</EstimatedRows>
+          <Dimensions>
+            <Dimension>
+              <CubeDimensionID>Date From</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Date SID</AttributeID>
+                  <EstimatedCount>16803</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date</AttributeID>
+                  <EstimatedCount>16803</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                  <EstimatedCount>47</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month No</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Date To</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Date SID</AttributeID>
+                  <EstimatedCount>16803</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date</AttributeID>
+                  <EstimatedCount>16803</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Year</AttributeID>
+                  <EstimatedCount>47</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Month No</AttributeID>
+                  <EstimatedCount>13</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Day</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Renting Point</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Point SID</AttributeID>
+                  <EstimatedCount>101</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>City</AttributeID>
+                  <EstimatedCount>21</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Address</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Postal Code</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Customer</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Customer SID</AttributeID>
+                  <EstimatedCount>20196</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>PESEL</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Name</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Surname</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Date Of Birth</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Gender</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>City</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Age Category</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Activation Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Disactivation Date</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Is Active</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Reservation Info</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Category SID</AttributeID>
+                  <EstimatedCount>5</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Reserv Category</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Status</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Car</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Car SID</AttributeID>
+                  <EstimatedCount>12001</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>License Plate</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Brand</AttributeID>
+                  <EstimatedCount>9</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Model</AttributeID>
+                  <EstimatedCount>66</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Prod Year</AttributeID>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Type Sid 1</AttributeID>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+            <Dimension>
+              <CubeDimensionID>Dim Price Table</CubeDimensionID>
+              <Attributes>
+                <Attribute>
+                  <AttributeID>Type SID</AttributeID>
+                  <EstimatedCount>4</EstimatedCount>
+                </Attribute>
+                <Attribute>
+                  <AttributeID>Type</AttributeID>
+                  <EstimatedCount>4</EstimatedCount>
+                </Attribute>
+              </Attributes>
+            </Dimension>
+          </Dimensions>
+          <Aggregations>
+            <Aggregation>
+              <ID>Aggregation 0</ID>
+              <Name>Aggregation 0</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Date From</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Date To</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Renting Point</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>City</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Reservation Info</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Category SID</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Car</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Price Table</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+            <Aggregation>
+              <ID>Aggregation 1</ID>
+              <Name>Aggregation 1</Name>
+              <Dimensions>
+                <Dimension>
+                  <CubeDimensionID>Date From</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Year</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Date To</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Renting Point</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>City</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Customer</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Reservation Info</CubeDimensionID>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Car</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Brand</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+                <Dimension>
+                  <CubeDimensionID>Dim Price Table</CubeDimensionID>
+                  <Attributes>
+                    <Attribute>
+                      <AttributeID>Type</AttributeID>
+                    </Attribute>
+                  </Attributes>
+                </Dimension>
+              </Dimensions>
+            </Aggregation>
+          </Aggregations>
+        </AggregationDesign>
+      </AggregationDesigns>
+    </MeasureGroup>
+  </MeasureGroups>
+</Cube>

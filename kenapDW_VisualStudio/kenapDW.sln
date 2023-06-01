@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33529.622
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "kenapDW", "kenapDW\kenapDW.dwproj", "{F3514627-5E15-44E4-8138-708CB9A7DB3B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3514627-5E15-44E4-8138-708CB9A7DB3B}.Development|Default.ActiveCfg = Development
+		{F3514627-5E15-44E4-8138-708CB9A7DB3B}.Development|Default.Build.0 = Development
+		{F3514627-5E15-44E4-8138-708CB9A7DB3B}.Development|Default.Deploy.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C7C0E3DD-70F2-46C4-A1E5-02189F0559E2}
+	EndGlobalSection
+EndGlobal

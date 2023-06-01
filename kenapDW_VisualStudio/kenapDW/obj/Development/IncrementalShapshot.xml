@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>kenapDW</Database>
+    <Server>DESKTOP-S8A9FBK\MSSQLSERVER_OLAP</Server>
+    <ConnectionString>Data Source=DESKTOP-S8A9FBK\MSSQLSERVER_OLAP;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>EHJHa5QVTsbmJfmXJxvHQINND50=22.05.2023 18:15:0120.04.2023 20:59:38</TimeStamp>
+        <ID>
+          <String>KENAP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>nmwi8i/bbvFGenyDpY1JzY4VhGI=22.05.2023 18:18:2620.04.2023 20:59:53</TimeStamp>
+        <ID>
+          <String>KENAP</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>lm5feVIWA936kA2WVPJ7h/7aW0M=30.05.2023 19:38:4120.04.2023 21:00:46</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oW/oD9ydzQzPFkba/+sQ0tPYEag=29.05.2023 21:05:3820.04.2023 21:00:46</TimeStamp>
+        <ID>
+          <String>Dim Renting Point</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>9senV3PzmC+lxHnWo9wiS/x3yjo=29.05.2023 20:39:3920.04.2023 21:00:46</TimeStamp>
+        <ID>
+          <String>Dim Customer</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>pJPerVkaiqZMiHYdbcY2+QOsb7I=29.05.2023 20:39:3920.04.2023 21:00:46</TimeStamp>
+        <ID>
+          <String>Dim Reservation Info</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>XqlXkaTIXwmhdvKsknRIMeXmlMw=29.05.2023 20:39:3920.04.2023 21:16:26</TimeStamp>
+        <ID>
+          <String>Dim Car</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>oGftqMuOzbWSFrocE1W0Y38AL40=29.05.2023 20:39:3920.04.2023 21:18:11</TimeStamp>
+        <ID>
+          <String>Dim Price Table</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>wX+Wmz8ue0UoNEVCBOH9EuO9CLs=30.05.2023 20:15:5920.04.2023 21:00:46GNjv20bol6TrBOr740kA1D/YErg=30.05.2023 20:15:5920.04.2023 21:00:46</TimeStamp>
+        <ID>
+          <String>KENAP</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>9NaPur4fQ+OqnoX501Hs5jzVt5k=20.04.2023 20:57:5420.04.2023 20:57:53</TimeStamp>
+      <ID>
+        <String>kenapDW</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2023-05-30T18:16:23.336667Z</LastDeployed>
+</DeploymentSnapshot>
