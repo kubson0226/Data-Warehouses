@@ -1,2 +1,2 @@
 # Data Warehous files: KENAP
-Group project with: [Jakub Kondracki](https://github.com/kubson0226)
+Group project with: [Krzysztof Domarecki](https://github.com/Krzy-Doma)
